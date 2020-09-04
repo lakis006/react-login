@@ -7,10 +7,10 @@ export default function AuthOptions() {
     const register = () => history.push("/register")
     const login = () => history.push("/login")
     return (
-        <div>
+        <nav className="auth-options">
             <button onClick= {register}>Register</button>
             <button onClick={login}>Log in</button>
             
-        </div>
+        </nav>
     )
 }

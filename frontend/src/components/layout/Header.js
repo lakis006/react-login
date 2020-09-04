@@ -4,12 +4,13 @@ import AuthOptions from "../auth/AuthOptions"
 
 function Header() {
     return (
-        <div>
-            <Link to="/">
-                <h1>MERN auth </h1>
+        <header id="header">
+            <Link  to="/">
+                <h1 className="title">MERN auth </h1>
             </Link>
+            <AuthOptions />
 
-        </div>
+        </header>
     )
 }
 
