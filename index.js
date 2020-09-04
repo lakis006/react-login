@@ -25,4 +25,4 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
 
 // set up routes 
 
-app.use("/users", require("./routes/userRoutes"));
+app.use("/users", require("./routes/userRouter"));
