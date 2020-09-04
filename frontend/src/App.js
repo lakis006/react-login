@@ -1,11 +1,12 @@
 //
 // Importing required files/ components
 import React from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom"
-import Home from "./components/pages/Home"
-import Login from "./components/auth/Login"
-import Register from "./components/auth/Register"
-import Header from "./components/layout/Header"
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Home from "./components/pages/Home";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Header from "./components/layout/Header";
+import UserContext from "./context/UserContext";
 
 import "./style.css";
 
