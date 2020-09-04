@@ -12,14 +12,14 @@ import UserContext from "./context/UserContext";
 import "./style.css";
 
 export default function App() {
-  const [userData, setUserData] = useState ({
+  const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
 
   });
 
   // function that runs when the app starts (async cant be used as the effect)
-  useEffect (() => {
+  useEffect(() => {
     const checkLoggenIn = async () => {
       let token = localStorage.getItem("auth-token");
       if (token === null) {
@@ -27,13 +27,18 @@ export default function App() {
         token = "";
       }
       const tokenRes = await Axios.post("http://localhost:5000/users/tokenIsValid",
-       null, 
-      {headers: { "x-auth-token": token } }
+        null,
+        { headers: { "x-auth-token": token } }
       );
       if (tokenRes.data) {
-        
+        const userRes = await Axios.get("http://localhost:5000/users/", {
+          headers: { "x-auth-token": token },
+        });
+        setUserData({
+          token,
+          user: userRes.data,
+        });
       }
-
     };
     checkLoggenIn();
 
@@ -41,27 +46,27 @@ export default function App() {
 
   return (
 
-      <>
-  {/* Everything inside the BrowserRouter has access to the routes 
+    <>
+      {/* Everything inside the BrowserRouter has access to the routes 
   Everything in the Switch has access to checking out the url
   The Routes have access to the components to act as page switches*/}
-  <BrowserRouter>
+      <BrowserRouter>
 
-  {/* Everything inside of the Provider has access to the value state */}
-  <UserContext.Provider value={{userData, setUserData}}>
+        {/* Everything inside of the Provider has access to the value state */}
+        <UserContext.Provider value={{ userData, setUserData }}>
 
 
-  <Header />
-  <Switch>
-    <Route exact path ="/" component={Home}/>
-    <Route path ="/login" component={Login}/>
-    <Route path ="/register" component={Register}/>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
 
-  </Switch>  
-  </UserContext.Provider>
-  </BrowserRouter>
+          </Switch>
+        </UserContext.Provider>
+      </BrowserRouter>
 
-  </>
+    </>
 
   );
 
