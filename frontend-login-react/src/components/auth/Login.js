@@ -31,7 +31,7 @@ function Login() { //
         localStorage.setItem("auth-token", loginRes.data.token);
         history.push("/");
     } catch (err) {
-        err.response.data.msg && setError(err.response.data.msg);
+        // err.response.data && setError(err.response.data);
     }
     };
 

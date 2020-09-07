@@ -39,17 +39,16 @@ function Register() {
         localStorage.setItem("auth-token", loginRes.data.token);
         history.push("/");
     } catch (err) {
-        err.response.data.msg && setError(err.response.data.msg);
+        err.response.data.msg && setError(err.response.data.msg);//
     }
     };
 
     return (
         <div className="page">
             <h2>Register</h2>
-            {error && <ErrorNotice message={error} clearError={
-                () => setError(undefined)}
-                />
-                }
+            {error && ( <ErrorNotice message={error} clearError={
+                () => setError(undefined)} />
+                )};
             <form className="form" onSubmit={submit}>
                 <label htmlFor="register-email">Email</label>
                 <input
@@ -83,4 +82,4 @@ function Register() {
     )
 }
 
-export default Register
+export default Register;

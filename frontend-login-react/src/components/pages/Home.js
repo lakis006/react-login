@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import {useHistory} from "react-router-dom";
-import UserContext from "../../context/UserContext"
+import UserContext from "../../context/UserContext";
 
 function Home () {
     const {userData} = useContext(UserContext);

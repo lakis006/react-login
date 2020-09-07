@@ -1,0 +1,115 @@
+login guide 
+
+
+-Packages 
+
+    
+    axios
+        -manages http requests easily 
+        -returns response (which we need to store)
+        -Axios.post()
+
+    react-router-dom
+        -useHistory:
+            -older functionality inside a component 
+            -everything that has happened or will happen in url (history)
+            -history.push("") adds the latest history// setting up our own links//
+        
+Step 1:
+
+-Overview
+
+    -
+
+-Key topics
+
+    - 
+         
+         -Key words: 
+
+
+-Actions to note
+
+    -
+
+
+Step 2: 
+
+-Overview
+
+    -Set up our "register" route and "login" route
+
+
+Step 3: 
+-Overview
+
+    -Set up our "delete" route and middleware function to run
+    prior to the "delete" route which checks if the user even 
+    has an account to delete, and if they do then to return as json token
+
+-technologies
+
+    -jsonwebtoken
+
+Step 4:
+-Overview
+
+    -Set up our react-router, react, css
+
+step 5: 
+-Overview
+
+    -Keep track of the currently logged in users using 
+    the context api. using axios, we will 
+
+-Key topics
+
+    -context api: 
+        not local to a single component but,
+         local to a scope of compenents 
+
+        basically a component that surrounds other 
+        components to useState 
+         
+         -Key words: createContext, Provider value, 
+
+
+-Actions to note
+
+    -
+
+
+step 6: 
+-Overview
+
+    -
+
+-Key topics
+
+    - 
+         
+         -Key words: 
+
+
+-Actions to note
+
+    -
+
+
+step 7: 
+-Overview
+
+    -
+
+-Key topics
+
+    - 
+         
+         -Key words: 
+
+
+-Actions to note
+
+    -
+
+
