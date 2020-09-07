@@ -20,7 +20,7 @@ export default function App() {
 
   // function that runs when the app starts (async cant be used as the effect)
   useEffect(() => {
-    const checkLoggenIn = async () => {
+    const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
       if (token === null) {
         localStorage.setItem("auth-token", "");
@@ -40,7 +40,7 @@ export default function App() {
         });
       }
     };
-    checkLoggenIn();
+    checkLoggedIn();
 
   }, []);
 
