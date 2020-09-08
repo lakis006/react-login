@@ -29,7 +29,7 @@ mongoose.connect( process.env.MONGODB_URI || process.env.MONGODB_CONNECTION_STRI
 app.use("/users", require("./routes/userRouter"));
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("./frontend-login-react/build"));
+    app.use(express.static("frontend-login-react/build"));
 
 }
 
