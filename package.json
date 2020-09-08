@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "build": "cd login-mern && npm run build",
     "install-client": "cd login-mern && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "nodemon server.js",
+    "start:prod": "nodemon server.js",
     "client": "cd login-mern && npm start",
     "dev": "concurrently -n 'server,login-mern' -c 'red,green'  \"nodemon server.js\" \"npm run login-mern\""
   },
