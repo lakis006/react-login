@@ -18,7 +18,7 @@ export default function App() {
 
   });
 
-  // function that runs when the app starts (async cant be used as the effect)
+  // function that runs when the app starts to see if the user is still logged in and it does so by validating the token 
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
@@ -26,12 +26,12 @@ export default function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenRes = await Axios.post("http://localhost:5000/users/tokenIsValid",
+      const tokenRes = await Axios.post("/users/tokenIsValid",
         null,
         { headers: { "x-auth-token": token } }
       );
       if (tokenRes.data) {
-        const userRes = await Axios.get("http://localhost:5000/users/", {
+        const userRes = await Axios.get("/users/", {
           headers: { "x-auth-token": token },
         });
         setUserData({

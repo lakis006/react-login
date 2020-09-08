@@ -12,7 +12,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Running on port: ${PORT}`));
+
 
 // set up mongoose 
 
@@ -37,3 +37,5 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'login-mern', 'build', 'index.html')); //relative path 
     });
 }
+
+app.listen(PORT, () => console.log(`Running on port: ${PORT}`));

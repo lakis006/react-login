@@ -2,11 +2,14 @@
   "name": "react-login",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd login-mern && npm install && npm run build"
+    "build": "cd login-mern && npm run build",
+    "install-client": "cd login-mern && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "nodemon server.js",
+    "client": "cd login-mern && npm start",
+    "dev": "concurrently -n 'server,login-mern' -c 'red,green'  \"nodemon server.js\" \"npm run login-mern\""
   },
   "repository": {
     "type": "git",
