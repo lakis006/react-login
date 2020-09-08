@@ -48,12 +48,14 @@ router.post("/login", async (req, res) => {
 
 
         // validate 
-        if (!email || password)
-            return res.status(400).json({ msg: "not all fields have been entered " });
+        if (!email || !password)
+            return res.status(400).json({ msg: "not all fields have been entered!" });
 
         const user = await User.findOne({ email: email });
         if (!user)
-            return res.status(400).json({ msg: "no account with this email has been registered" });
+            return res
+            .status(400)
+            .json({ msg: "No account with this email has been registered" });
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch)
@@ -63,11 +65,11 @@ router.post("/login", async (req, res) => {
         res.json({
             token,
             user: {
-                id: user_id,
+                id: user._id,
                 displayName: user.displayName,
-                email: user.email
-            }
-        })
+                email: user.email,
+            },
+        });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -101,7 +103,7 @@ router.post("/tokenIsValid", async (req, res) => {
 
         return res.json(true);
 
-    } catch (error) {
+    } catch (err) {
         res.status(500).json({ error: err.message });
     }
 });
