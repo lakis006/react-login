@@ -11,7 +11,10 @@ function Home () {
     
     })
 
-    return <div className="page">Home</div>
+    return <div className="page"> This is where the movie component will be rendered 
+        
+        
+         </div>
 }
 
 export default Home
