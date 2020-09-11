@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors= require("cors");
 require("dotenv").config();
+const path = require('path');
 
 // set up express 
 
@@ -11,11 +12,11 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Running on port: ${PORT}`));
+
 
 // set up mongoose 
 
-mongoose.connect( process.env.MONGODB_URI || process.env.MONGODB_CONNECTION_STRING, {
+mongoose.connect( process.env.MONGODB_URI || "mongodb+srv://mongo-login:fhfdbi9bSc7NXm9V@clusterm.8znbx.mongodb.net/authenticate?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -28,11 +29,13 @@ mongoose.connect( process.env.MONGODB_URI || process.env.MONGODB_CONNECTION_STRI
 
 app.use("/users", require("./routes/userRouter"));
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("frontend-login-react/build"));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static( 'login-mern/build' ));
+
     app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'frontend-login-react', 'build', 'index.html')); 
-
-})
-
+        res.sendFile(path.join(__dirname, 'login-mern', 'build', 'index.html')); //relative path 
+    });
 }
+
+app.listen(PORT, () => console.log(`Running on port: ${PORT}`));

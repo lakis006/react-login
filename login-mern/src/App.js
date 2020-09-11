@@ -18,7 +18,7 @@ export default function App() {
 
   });
 
-  // function that runs when the app starts (async cant be used as the effect)
+  // function that runs when the app starts to see if the user is still logged in and it does so by validating the token 
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem("auth-token");
@@ -58,9 +58,8 @@ export default function App() {
 
 
           <Header />
-          {/* change container and remove calling in style.css to 
-          react-bootstrap for better styling & another technology*/}
-          <div className="container" > 
+          
+          <div className="container" > {/* change container and remove its reference in style.css to react-bootstrap for better styling & another technology*/}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
