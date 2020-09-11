@@ -1,8 +1,10 @@
 {
+  
   "name": "react-login",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  
   "scripts": {
     "start": "nodemon server.js",
     "build": "cd login-mern && npm run build",
@@ -12,10 +14,12 @@
     "client": "cd login-mern && npm start",
     "dev": "concurrently -n 'server,login-mern' -c 'red,green'  \"nodemon server.js\" \"npm start login-mern\""
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lakis006/react-login.git"
   },
+
   "author": "",
   "license": "ISC",
   "bugs": {
