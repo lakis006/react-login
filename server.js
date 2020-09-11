@@ -4,6 +4,14 @@ const cors= require("cors");
 require("dotenv").config();
 const path = require('path');
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static( 'login-mern/build' ));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'login-mern', 'build', 'index.html')); //relative path 
+    });
+}
+
 // set up express 
 
 const app = express();
@@ -30,12 +38,6 @@ mongoose.connect( process.env.MONGODB_URI || "mongodb+srv://mongo-login:fhfdbi9b
 app.use("/users", require("./routes/userRouter"));
 
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static( 'login-mern/build' ));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'login-mern', 'build', 'index.html')); //relative path 
-    });
-}
 
 app.listen(PORT, () => console.log(`Running on port: ${PORT}`));
