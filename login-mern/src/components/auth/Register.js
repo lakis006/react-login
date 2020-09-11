@@ -20,12 +20,12 @@ function Register() {
         try {
         const newUser = { email, password, passwordCheck, displayName };
         await Axios.post(
-            "/users/register",
+            "http://localhost:5000/users/register",
             newUser
         );
 
         const loginRes = await Axios.post(
-            "/users/login", {
+            "http://localhost:5000/users/login", {
 
         email,
         password,

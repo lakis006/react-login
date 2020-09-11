@@ -58,9 +58,8 @@ export default function App() {
 
 
           <Header />
-          {/* change container and remove calling in style.css to 
-          react-bootstrap for better styling & another technology*/}
-          <div className="container" > 
+          
+          <div className="container" > {/* change container and remove its reference in style.css to react-bootstrap for better styling & another technology*/}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
