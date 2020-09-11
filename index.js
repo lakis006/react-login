@@ -15,7 +15,7 @@ app.listen(PORT, () => console.log(`Running on port: ${PORT}`));
 
 // set up mongoose 
 
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
+mongoose.connect( process.env.MONGODB_URI || process.env.MONGODB_CONNECTION_STRING, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -28,3 +28,11 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING, {
 
 app.use("/users", require("./routes/userRouter"));
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("frontend-login-react/build"));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'frontend-login-react', 'build', 'index.html')); 
+
+})
+
+}
