@@ -50,11 +50,16 @@ router.post("/login", async (req, res) => {
 
         // validate 
         if (!email || !password)
+
+
             return res.status(400).json({ msg: "Not all fields have been entered" });
+
 
         const user = await User.findOne({ email: email });
         if (!user)
-            return res.status(400).json({ msg: "no account with this email has been registered" });
+            return res
+            .status(400)
+            .json({ msg: "No account with this email has been registered" });
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch)
