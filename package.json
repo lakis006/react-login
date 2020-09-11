@@ -10,7 +10,7 @@
     "heroku-postbuild": "cd login-mern && npm run install && npm run build",
     "start:prod": "nodemon server.js",
     "client": "cd login-mern && npm start",
-    "dev": "concurrently -n 'server,login-mern' -c 'red,green'  \"nodemon server.js\" \"npm run login-mern\""
+    "dev": "concurrently -n 'server,login-mern' -c 'red,green'  \"nodemon server.js\" \"npm start login-mern\""
   },
   "repository": {
     "type": "git",
